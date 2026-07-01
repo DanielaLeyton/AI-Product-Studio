@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Product Studio · Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <div>
+          <strong>Product Studio</strong>
+          <span>Agentic workflow</span>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="Navegación principal">
+        <button class="nav-item active" type="button" data-filter="all">Overview</button>
+        <button class="nav-item" type="button" data-filter="Discovery">Discovery</button>
+        <button class="nav-item" type="button" data-filter="Diseño">Diseño</button>
+        <button class="nav-item" type="button" data-filter="Delivery">Delivery</button>
+        <button class="nav-item" type="button" data-scroll="learning-loop">Learning Loop</button>
+        <button class="nav-item" type="button" data-scroll="templates">Templates</button>
+        <button class="nav-item" type="button" data-scroll="decision-log">Decision Log</button>
+      </nav>
+
+      <div class="sidebar-section">
+        <p class="eyebrow">Modo de ejecución</p>
+        <button class="mode active" type="button" data-mode="Mejora">Mejora · Light</button>
+        <button class="mode" type="button" data-mode="Funcionalidad nueva">Funcionalidad · Standard</button>
+        <button class="mode" type="button" data-mode="Proyecto nuevo">Proyecto nuevo · Deep</button>
+        <button class="mode" type="button" data-mode="Iniciativa estratégica">Iniciativa estratégica</button>
+      </div>
+
+      <div class="note-card">
+        <p class="eyebrow">4D Governance</p>
+        <p>Delegación, Descripción, Discernimiento y Diligencia atraviesan cada fase.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI Product Studio</p>
+          <h1>De oportunidad ambigua a decisión de producto medible.</h1>
+          <p class="hero-copy">
+            Un sistema agéntico para entender problemas, tomar decisiones, diseñar soluciones, preparar handoff,
+            medir impacto, validar hipótesis, lanzar con control y capturar aprendizajes reutilizables.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button class="secondary" type="button" id="exportPdrTop">Exportar PDR</button>
+          <button class="primary" type="button" id="startWorkflow">Iniciar workflow</button>
+        </div>
+      </header>
+
+      <section class="process-strip" aria-label="Flujo del proceso">
+        <div><span>01</span>Intake</div>
+        <div><span>02</span>Discovery</div>
+        <div><span>03</span>Diseño</div>
+        <div><span>04</span>Delivery</div>
+        <div><span>05</span>Learning Loop</div>
+      </section>
+
+      <section class="intro-card" aria-labelledby="how-it-works">
+        <div>
+          <p class="eyebrow">Cómo funciona</p>
+          <h2 id="how-it-works">Orquestador agéntico de producto</h2>
+          <p>
+            AI Product Studio opera como un orquestador agéntico de producto. Toma contexto desordenado, detecta el tipo
+            de iniciativa, estructura el discovery, ayuda a tomar decisiones, genera caminos de solución, prepara handoff,
+            define medición, apoya validaciones, prepara lanzamiento y captura aprendizajes reutilizables.
+          </p>
+        </div>
+        <div class="flow-line" aria-label="Secuencia del framework">
+          <span>Intake</span>
+          <span>Discovery</span>
+          <span>Diseño</span>
+          <span>Delivery</span>
+          <span>Learning Loop</span>
+        </div>
+      </section>
+
+      <section class="toolbar">
+        <div class="tabs" aria-label="Filtros por bloque">
+          <button class="tab active" type="button" data-filter="all">Todos</button>
+          <button class="tab" type="button" data-filter="Discovery">Discovery</button>
+          <button class="tab" type="button" data-filter="Diseño">Diseño</button>
+          <button class="tab" type="button" data-filter="Delivery">Delivery</button>
+        </div>
+        <label class="search-label">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Strategy, PDR, metrics..." />
+        </label>
+      </section>
+
+      <section class="mode-context" aria-live="polite">
+        <div>
+          <p class="eyebrow">Ruta recomendada</p>
+          <h2 id="modeTitle">Mejora</h2>
+          <p id="modeDescription"></p>
+        </div>
+        <div class="recommended-phases" id="recommendedPhases"></div>
+      </section>
+
+      <section class="grid-header">
+        <div>
+          <p class="eyebrow">Framework</p>
+          <h2>Fases navegables</h2>
+        </div>
+        <span id="resultCount">0 cards</span>
+      </section>
+
+      <section class="grid" id="cardsGrid" aria-live="polite"></section>
+
+      <section class="section-block learning-loop" id="learning-loop">
+        <p class="eyebrow">Learning Loop</p>
+        <h2>Cada iniciativa mejora la siguiente</h2>
+        <p>
+          El trabajo no termina con delivery. El sistema revisa métricas, aprendizajes, decisiones y patrones
+          reutilizables para mejorar futuras iniciativas, playbooks, sistema de diseño y memoria del agente.
+        </p>
+      </section>
+
+      <section class="section-block" id="decision-log">
+        <div class="grid-header">
+          <div>
+            <p class="eyebrow">4D Governance</p>
+            <h2>Colaboración humano + IA</h2>
+          </div>
+        </div>
+        <div class="mini-grid" id="governanceGrid"></div>
+        <div class="governance-questions">
+          <p class="eyebrow">Cada fase debe pasar por 4 preguntas</p>
+          <ul>
+            <li>¿Qué se delega?</li>
+            <li>¿Qué contexto necesita?</li>
+            <li>¿Cómo se evalúa?</li>
+            <li>¿Qué responsabilidad conserva el humano?</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-block" id="templates">
+        <div class="grid-header">
+          <div>
+            <p class="eyebrow">Modos de ejecución</p>
+            <h2>Templates por tipo de iniciativa</h2>
+          </div>
+        </div>
+        <div class="mini-grid" id="executionGrid"></div>
+      </section>
+    </main>
+
+    <aside class="detail-panel" id="detailPanel" aria-label="Detalle de fase" aria-hidden="true">
+      <button class="close-panel" id="closePanel" type="button" aria-label="Cerrar detalle">×</button>
+      <div id="panelContent"></div>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
